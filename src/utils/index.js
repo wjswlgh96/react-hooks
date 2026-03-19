@@ -19,3 +19,16 @@ export const useInput = (initValue, validateFunc) => {
 
   return { value, onChange };
 };
+
+export const useTabs = (initTab, allTabs) => {
+  const [currentIndex, setCurrentIndex] = useState(initTab);
+
+  if (!allTabs || !Array.isArray(allTabs)) {
+    return;
+  }
+
+  return {
+    currentItem: allTabs[currentIndex],
+    changeItem: setCurrentIndex,
+  };
+};
